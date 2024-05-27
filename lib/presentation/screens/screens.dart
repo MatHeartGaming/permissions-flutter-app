@@ -1,3 +1,4 @@
+export 'package:miscelaneos/presentation/screens/permissions/ask_location_screen.dart';
 export 'package:miscelaneos/presentation/screens/sensors/accelerometer_screen.dart';
 export 'package:miscelaneos/presentation/screens/sensors/compass_screen.dart';
 export 'package:miscelaneos/presentation/screens/sensors/gyroscope_ball_screen.dart';

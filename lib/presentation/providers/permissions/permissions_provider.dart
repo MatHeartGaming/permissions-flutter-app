@@ -101,27 +101,27 @@ class PermissionsState {
     this.locationWhenInUse = PermissionStatus.denied,
   });
 
-  get cameraGranted {
+  bool get cameraGranted {
     return camera == PermissionStatus.granted;
   }
 
-  get photoLibraryGranted {
+  bool get photoLibraryGranted {
     return photoLibrary == PermissionStatus.granted;
   }
 
-  get sensorsGranted {
+  bool get sensorsGranted {
     return sensors == PermissionStatus.granted;
   }
 
-  get locationGranted {
+  bool get locationGranted {
     return location == PermissionStatus.granted;
   }
 
-  get locationAlwaysGranted {
+  bool get locationAlwaysGranted {
     return locationAlways == PermissionStatus.granted;
   }
 
-  get locationWhenInUseGranted {
+  bool get locationWhenInUseGranted {
     return locationWhenInUse == PermissionStatus.granted;
   }
 
