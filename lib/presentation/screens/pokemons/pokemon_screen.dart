@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:miscelaneos/config/config.dart';
 import 'package:miscelaneos/domain/domain.dart';
 import 'package:miscelaneos/presentation/providers/providers.dart';
 
@@ -13,7 +14,7 @@ class PokemonScreen extends ConsumerWidget {
     final pokemonAsync = ref.watch(pokemonProvider(pokemonId));
     return pokemonAsync.when(
       data: (pokemon) => _PokemonView(pokemon: pokemon),
-      error: (error, stackTrace) =>_ErrorView(message: error.toString()),
+      error: (error, stackTrace) => _ErrorView(message: error.toString()),
       loading: () => const _LoadingView(),
     );
   }
@@ -28,6 +29,14 @@ class _PokemonView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(pokemon.name),
+        actions: [
+          IconButton(
+              onPressed: () {
+                // Link = Deeplink
+                SharePlugin.shareLink(pokemon.spriteFront, 'Mira este pokemon');
+              },
+              icon: const Icon(Icons.share_outlined))
+        ],
       ),
       body: Center(
           child: Image.network(
