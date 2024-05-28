@@ -25,12 +25,12 @@ class LocalAuthPlugin {
     return await auth.canCheckBiometrics;
   }
 
-  static Future<(bool, String)> authenticate() async {
+  static Future<(bool, String)> authenticate({bool biometricsOnly = false}) async {
     try {
       final bool didAuthenticate = await auth.authenticate(
         localizedReason: 'Por favor autenicate para usar la app.',
-        options: const AuthenticationOptions(
-            biometricOnly: false // En false permite usar el PIN
+        options: AuthenticationOptions(
+            biometricOnly: biometricsOnly // En false permite usar el PIN
             ),
       );
 
