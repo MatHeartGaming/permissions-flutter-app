@@ -85,4 +85,5 @@ final menuItems = <MenuItem>[
       'Giroscopio Ball', Icons.sports_baseball_outlined, '/gyroscope-ball'),
   MenuItem('Brujula', Icons.explore, '/compass'),
   MenuItem('Pokemons', Icons.explore, '/pokemons'),
+  MenuItem('Biometrics', Icons.fingerprint_outlined, '/biometrics'),
 ];
