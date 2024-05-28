@@ -86,4 +86,7 @@ final menuItems = <MenuItem>[
   MenuItem('Brujula', Icons.explore, '/compass'),
   MenuItem('Pokemons', Icons.explore, '/pokemons'),
   MenuItem('Biometrics', Icons.fingerprint_outlined, '/biometrics'),
+  MenuItem('Ubicacion', Icons.pin_drop, '/location'),
+  MenuItem('Mapas', Icons.map_outlined, '/maps'),
+  MenuItem('Controlado', Icons.gamepad_outlined, '/controlled-map'),
 ];
