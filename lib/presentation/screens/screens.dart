@@ -1,3 +1,6 @@
+export 'package:miscelaneos/presentation/screens/ads/ad_full_screen.dart';
+export 'package:miscelaneos/presentation/screens/ads/ad_rewarded_screen.dart';
+
 export 'package:miscelaneos/presentation/screens/badge/badge_screen.dart';
 export 'package:miscelaneos/presentation/screens/location/controlled_map_screen.dart';
 export 'package:miscelaneos/presentation/screens/location/location_screen.dart';

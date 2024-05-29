@@ -52,6 +52,14 @@ final router = GoRouter(routes: [
     builder: (context, state) => const BadgeScreen(),
   ),
   GoRoute(
+    path: '/ad-full-screen',
+    builder: (context, state) => const AdFullScreen(),
+  ),
+  GoRoute(
+    path: '/ad-rewarded',
+    builder: (context, state) => const AdRewardedScreen(),
+  ),
+  GoRoute(
       path: '/pokemons',
       builder: (context, state) => const PokemonsScreen(),
       routes: [
