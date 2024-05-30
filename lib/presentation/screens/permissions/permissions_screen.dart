@@ -21,51 +21,51 @@ class _PermissionsView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-
-    final permissions = ref.watch( permissionsProvider );
+    final permissions = ref.watch(permissionsProvider);
+    final showAds = ref.watch(showAdsProvider);
 
     return ListView(
       children: [
-
         CheckboxListTile(
-          value: permissions.cameraGranted, 
+          value: permissions.cameraGranted,
           title: const Text('Cámara'),
-          subtitle: Text('${ permissions.camera }'),
-          onChanged: ( _ ) {
-            ref.read(permissionsProvider.notifier).requestCameraAccess(); 
+          subtitle: Text('${permissions.camera}'),
+          onChanged: (_) {
+            ref.read(permissionsProvider.notifier).requestCameraAccess();
           },
         ),
-
         CheckboxListTile(
-          value: permissions.photoLibraryGranted, 
+          value: permissions.photoLibraryGranted,
           title: const Text('Galería de fotos'),
-          subtitle: Text('${ permissions.photoLibrary }'),
-          onChanged: ( _ ) {
+          subtitle: Text('${permissions.photoLibrary}'),
+          onChanged: (_) {
             ref.read(permissionsProvider.notifier).requestPhotoLibraryAccess();
           },
         ),
-
         CheckboxListTile(
-          value: permissions.locationGranted, 
+          value: permissions.locationGranted,
           title: const Text('Location'),
-          subtitle: Text('${ permissions.location }'),
-          onChanged: ( _ ) {
+          subtitle: Text('${permissions.location}'),
+          onChanged: (_) {
             ref.read(permissionsProvider.notifier).requestLocationAccess();
           },
         ),
-
         CheckboxListTile(
-          value: permissions.sensorsGranted, 
+          value: permissions.sensorsGranted,
           title: const Text('Sensors'),
-          subtitle: Text('${ permissions.sensors }'),
-          onChanged: ( _ ) {
-            ref.read(permissionsProvider.notifier).requestSensorsAccess(); 
+          subtitle: Text('${permissions.sensors}'),
+          onChanged: (_) {
+            ref.read(permissionsProvider.notifier).requestSensorsAccess();
           },
         ),
-
-
-
-
+        CheckboxListTile(
+          value: showAds,
+          title: const Text('Mostrar Ads'),
+          subtitle: const Text('Esta opcion muestra y oculta ads'),
+          onChanged: (_) {
+            ref.read(showAdsProvider.notifier).toggleAds();
+          },
+        ),
       ],
     );
   }
