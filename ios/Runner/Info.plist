@@ -30,6 +30,10 @@
 	<key>NSFaceIDUsageDescription</key>
 	<string>Why is my app authenticating using face id?</string>
 
+	<!-- Admob key -->
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-1860080704760961~3601851313</string>
+
 	<key>UIBackgroundModes</key>
     <array>
         <string>remote-notification</string>

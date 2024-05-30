@@ -27,6 +27,10 @@
         android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.google.android.geo.API_KEY" 
                 android:value="AIzaSyDau04BFoOdF6KD7uDcb2JoxNcOpv_H4_M"/>
+        <!-- AdMob Key  -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1860080704760961~1474381429"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

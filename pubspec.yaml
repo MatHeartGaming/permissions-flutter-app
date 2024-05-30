@@ -23,6 +23,7 @@ dependencies:
   quick_actions: ^1.0.7
   sensors_plus: ^5.0.1
   share_plus: ^9.0.0
+  shared_preferences: ^2.2.3
   uuid: ^4.4.0
 
 dev_dependencies:
