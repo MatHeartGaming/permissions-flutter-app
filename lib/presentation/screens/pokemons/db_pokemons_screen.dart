@@ -1,13 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:miscelaneos/config/config.dart';
 import 'package:miscelaneos/domain/domain.dart';
+import 'package:miscelaneos/presentation/providers/background_tasks/background_task_provider.dart';
+import 'package:miscelaneos/presentation/providers/providers.dart';
 import 'package:workmanager/workmanager.dart';
 
-class DbPokemonsScreen extends StatelessWidget {
+class DbPokemonsScreen extends ConsumerWidget {
   const DbPokemonsScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final pokemonsAsync = ref.watch(pokemonDbProvider);
+    final isBackgroundFetchActive = ref.watch(backgroundPokemonFetchProvider);
+    if (pokemonsAsync.isLoading) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator.adaptive(),
+        ),
+      );
+    }
+
+    final List<Pokemon> pokemons = pokemonsAsync.value ?? [];
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Background Process'),
@@ -16,18 +31,23 @@ class DbPokemonsScreen extends StatelessWidget {
               onPressed: () {
                 Workmanager().registerOneOffTask(
                     fetchBackgroundTaskKey, fetchBackgroundTaskKey,
-                    initialDelay: const Duration(seconds: 3), inputData: {'howMany': 30});
+                    initialDelay: const Duration(seconds: 3),
+                    inputData: {'howMany': 30});
               },
               icon: const Icon(Icons.add_alarm_rounded))
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
-        label: const Text('Activar fetch periodico'),
+        onPressed: () {
+          ref.read(backgroundPokemonFetchProvider.notifier).toggleProcess();
+        },
+        label: (isBackgroundFetchActive == true)
+            ? const Text('Desactivar fetch periodico')
+            : const Text('Activar fetch periodico'),
         icon: const Icon(Icons.av_timer_outlined),
       ),
       body: CustomScrollView(
-        slivers: [_PokemonsGrid(pokemons: [])],
+        slivers: [_PokemonsGrid(pokemons: pokemons)],
       ),
     );
   }
