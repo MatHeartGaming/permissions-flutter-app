@@ -1,3 +1,4 @@
+export 'package:miscelaneos/presentation/screens/pokemons/db_pokemons_screen.dart';
 export 'package:miscelaneos/presentation/screens/ads/ad_full_screen.dart';
 export 'package:miscelaneos/presentation/screens/ads/ad_rewarded_screen.dart';
 

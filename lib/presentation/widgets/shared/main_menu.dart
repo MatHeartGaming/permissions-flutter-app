@@ -93,4 +93,5 @@ final menuItems = <MenuItem>[
   MenuItem('Badge', Icons.notification_important_outlined, '/badge'),
   MenuItem('Ad Full', Icons.ad_units_rounded, '/ad-full-screen'),
   MenuItem('Ad Rewarded', Icons.fort_rounded, '/ad-rewarded'),
+  MenuItem('Background Process', Icons.storage_rounded, '/db-pokemons'),
 ];

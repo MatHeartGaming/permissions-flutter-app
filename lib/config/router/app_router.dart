@@ -60,6 +60,10 @@ final router = GoRouter(routes: [
     builder: (context, state) => const AdRewardedScreen(),
   ),
   GoRoute(
+    path: '/db-pokemons',
+    builder: (context, state) => const DbPokemonsScreen(),
+  ),
+  GoRoute(
       path: '/pokemons',
       builder: (context, state) => const PokemonsScreen(),
       routes: [

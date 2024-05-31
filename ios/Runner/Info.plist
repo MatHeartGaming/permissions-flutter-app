@@ -37,7 +37,16 @@
 	<key>UIBackgroundModes</key>
     <array>
         <string>remote-notification</string>
+        <string>fetch</string>
     </array>
+
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>task-identifier</string>
+
+		<!-- Register a periodic task in iOS 13+ -->
+		<string>it.matbuompy.miscelaneos.fetch-background-periodic-pokemon</string>
+	</array>
 
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>

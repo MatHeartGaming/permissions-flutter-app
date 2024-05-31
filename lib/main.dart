@@ -3,11 +3,28 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:miscelaneos/config/config.dart';
 import 'package:miscelaneos/presentation/providers/providers.dart';
+import 'package:workmanager/workmanager.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await AdmobPlugin.initalize();
   QuickActionsPlugin.registerActions();
+
+  await Workmanager().initialize(
+    callbackDispatcher,
+    isInDebugMode: true,
+  );
+  /*Workmanager().registerOneOffTask(
+      "it.matbuompy.miscelaneos.simpleTask",
+      "it.matbuompy.miscelaneos.simpleTask",
+      inputData: {'hola': 'mundo'},
+      constraints: Constraints(
+          networkType: NetworkType.connected,
+          //requiresBatteryNotLow: true,
+          //requiresCharging: true,
+          //requiresDeviceIdle: true,
+          //requiresStorageNotLow: true
+    ));*/
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
